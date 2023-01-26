@@ -1,8 +1,7 @@
-# our base image
-FROM python:3-onbuild
-
-# specify the port number the container should expose
+FROM python:3.9
+WORKDIR /backend
+COPY requirements.txt /backend
+RUN pip3 install --upgrade pip -r requirements.txt
+COPY . /backend
 EXPOSE 5000
-
-# run the application
-CMD ["python", "./app.py"]
+CMD python ./app.py
