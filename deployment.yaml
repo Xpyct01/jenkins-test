@@ -30,6 +30,6 @@ spec:
       containers:
       - name: flask-test-app
         image: flask-test-app
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
