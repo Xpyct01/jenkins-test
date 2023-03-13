@@ -9,6 +9,10 @@ jobs:
       - name: bruh
         working-directory: ./src/scripts
         run: ls
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       - name: preprocess
         working-directory: ./src/scripts
         run: python preprocess.py
