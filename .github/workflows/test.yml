@@ -36,6 +36,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build and push Docker image
         if: ${{steps.json_properties.outputs.accuracy}} > 0.9
+        working-directory: ./src/container
         uses: docker/build-push-action@v4
         with:
           push: true
