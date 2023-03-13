@@ -5,4 +5,12 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: checking repository code
+        uses: actions/checkout@v3
+        run: cd src/scripts
+      - name: preprocess
+        run: python preprocess.py
+      - name: train
+        run: python train.py
+      - name: evaluate
+        run: python evaluation.py
