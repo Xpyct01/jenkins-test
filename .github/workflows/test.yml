@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: checking repository code
         uses: actions/checkout@v3
-        run: cd src/scripts
+      - run: cd src/scripts
       - name: preprocess
         run: python preprocess.py
       - name: train
