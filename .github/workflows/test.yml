@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ls -la
+      - run: ls
       - name: preprocess
         run: python src/scripts/preprocess.py
       - name: train
