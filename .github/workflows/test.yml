@@ -6,10 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: find src
       - name: preprocess
-        run: python src/scripts/preprocess.py
+        run: python ./src/scripts/preprocess.py
       - name: train
-        run: python src/scripts/train.py
+        run: python ./src/scripts/train.py
       - name: evaluate
-        run: python src/scripts/evaluation.py
+        run: python ./src/scripts/evaluation.py
