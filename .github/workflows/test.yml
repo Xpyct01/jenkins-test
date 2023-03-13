@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - name: preprocess
         run: python src/scripts/preprocess.py
       - name: train
