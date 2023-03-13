@@ -6,6 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: bruh
+        working-directory: ./src/scripts
+        run: ls
       - name: preprocess
         working-directory: ./src/scripts
         run: python preprocess.py
