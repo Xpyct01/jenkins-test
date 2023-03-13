@@ -21,10 +21,9 @@ jobs:
         working-directory: ./src/scripts
         run: python evaluation.py
       - name: get score
-        working-directory: ./src/scripts/processing/evaluation
         id: repository_type
         uses: zoexx/github-action-json-file-properties@release
         with:
-          file_path: "evaluation.json"
+          file_path: "./src/scripts/processing/evaluation/evaluation.json"
           prop_path: "accuracy"
       - run: echo ${{steps.json_properties.outputs.value}}
