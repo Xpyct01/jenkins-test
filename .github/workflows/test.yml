@@ -1,5 +1,5 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: CI/CD pipeline
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -20,3 +20,11 @@ jobs:
       - name: evaluate
         working-directory: ./src/scripts
         run: python evaluation.py
+      - name: get score
+        working-directory: ./src/scripts/processing/evaluation
+        uses: zoexx/github-action-json-file-properties@release
+        with:
+          file_path: "evaluation.json"
+          prop_path: "accuracy"
+      - run: |
+          echo ${{steps.json_properties.outputs.value}}
