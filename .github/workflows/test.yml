@@ -25,4 +25,6 @@ jobs:
         uses: zoexx/github-action-json-file-properties@release
         with:
           file_path: "./src/scripts/processing/evaluation/evaluation.json"
-      - run: echo ${{steps.json_properties.outputs.accuracy}}
+      - name: build docker image
+        run: echo Good
+        if: ${{steps.json_properties.outputs.accuracy}} > 0.85
