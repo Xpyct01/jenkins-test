@@ -1,11 +1,22 @@
-from flask import Flask
+from flask import Flask, request
+import joblib
 
+
+MODEL_PATH = "model.gz"
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def get_predictions(input_data):
+    model = joblib.load(MODEL_PATH)
+    result = model.predict([input_data])[0]
+    return {"result": result}
+
+
+@app.route("/predict", methods=['GET'])
+def predict():
+    request_data = request.get_json()
+    input_data = request_data['input_data']
+    return get_predictions(input_data)
 
 
 if __name__ == '__main__':
