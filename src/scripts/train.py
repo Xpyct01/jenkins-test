@@ -22,8 +22,10 @@ class TrainingModel:
 
     def save_model(self):
         model_path = f"{self.base_dir}/model/"
+        docker_path = "../container/"
         pathlib.Path(model_path).mkdir(parents=True, exist_ok=True)
         joblib.dump(self.model, f"{model_path}/model.gz")
+        joblib.dump(self.model, f"{docker_path}/model.gz")
 
     def get_model(self):
         self.get_data()
