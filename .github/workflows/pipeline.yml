@@ -36,4 +36,4 @@ jobs:
         with:
           context: "./src/container"
           push: true
-          tags: user/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
